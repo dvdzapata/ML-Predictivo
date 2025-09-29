@@ -1,0 +1,18 @@
+# Modelos y datos derivados
+/modelos_guardados/
+/resultados/
+/logs/
+
+# Archivos temporales o de entorno
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Entornos virtuales
+venv/
+.env/
+.envrc
+
+# Archivos logs en raíz
+*.log
