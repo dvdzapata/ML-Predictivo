@@ -1,58 +1,70 @@
-# ML Predictivo para AVGO, AMD, NVDA
+# ML Predictivo para Acciones y ETFs
 
-## Contexto del proyecto
+## Contexto del Proyecto
 
-Este repositorio contiene el proyecto de predicción de precios de acciones para AVGO, AMD y NVDA usando Machine Learning.  
-El objetivo es predecir el precio de cierre a +1, +3 y +7 días usando tres modelos principales:
-- Prophet
-- Random Forest
-- LSTM
+Este repositorio contiene un flujo completo para entrenar y comparar modelos de Machine Learning para predecir precios de cierre a +1, +3 y +7 días de acciones (AMD, AVGO, NVDA) y, si se desea en el futuro, de ETFs relacionados al sector semiconductores.
 
-**El dataset es un CSV con 10 años de cotizaciones.**
+### **Datasets disponibles**
 
----
+- **Acciones (diario):**  
+  - Archivo: `10-años-amd-nvda-avgo.csv`
+  - Columnas: Ticker, Date, Open, High, Low, Close, Adjusted_close, Adjusted_low, Adjusted_high, Adjusted_open, Volume
 
-## Estructura recomendada
+- **ETFs (diario):**  
+  - Archivo: `etf-daily.csv`
+  - Columnas: Ticker, Date, Open, High, Low, Close, Adjusted_close, Adjusted_low, Adjusted_high, Adjusted_open, Volume
 
-- `10 años.. csv` — Dataset con las columnas: Ticker, Date, Open, High, Low, Close, Adjusted_close, Adjusted_low, Adjusted_high, Adjusted_open, Volume
-- `entrenar_modelos.py` — Script principal para entrenamiento y evaluación.
-- `modelos_guardados/` — Aquí se guardarán los modelos entrenados y normalizadores.
-- `resultados/` — Aquí se encontrarán las predicciones y métricas.
-- `logs/` — Logs detallados de cada ejecución.
+- **ETFs (1 hora):**  
+  - Archivo: `etf-1h.csv`
+  - Columnas: Ticker, Timestamp, Gmtoffset, DateTime, Open, High, Low, Close, Volume
 
 ---
 
-## ¿Cómo continuar si se cierra el chat?
+## Estructura Recomendada
 
-1. **Siempre deja los scripts y modelos guardados en el repo.**
-2. Si quieres retomar, simplemente copia este contexto y tus dudas en el chat de Copilot o GitHub Copilot Chat.
-3. Yo (Copilot) puedo continuar desde cualquier paso, solo dime qué archivos tienes y qué necesitas.
+- `10-años-amd-nvda-avgo.csv`  — Datos diarios de AMD, AVGO, NVDA
+- `etf-daily.csv`               — ETFs diarios (opcional para features futuras)
+- `etf-1h.csv`                  — ETFs en 1h (opcional para features futuras)
+- `entrenar_modelos.py`         — Script principal de entrenamiento y evaluación
+- `modelos_guardados/`          — Modelos y normalizadores guardados automáticamente
+- `resultados/`                 — Predicciones y métricas generadas
+- `logs/`                       — Logs detallados de cada ejecución
 
 ---
 
 ## ¿Cómo entrenar los modelos?
 
-1. Instala dependencias:
-
+1. **Instala las dependencias:**
    ```bash
    pip install pandas prophet scikit-learn tensorflow tqdm
    ```
 
-2. Ejecuta el script:
-
+2. **Ejecuta el script:**
    ```bash
    python entrenar_modelos.py
    ```
 
-3. Los modelos entrenados estarán en `modelos_guardados/`, los resultados en `resultados/` y los logs detallados en `logs/`.
+3. **Resultados:**
+   - Modelos entrenados en `modelos_guardados/`
+   - Predicciones y métricas en `resultados/`
+   - Log detallado en `logs/`
 
 ---
 
-## ¿Cómo agregar nuevas predicciones o ajustar modelos?
+## ¿Cómo continuar si se cierra el chat?
 
-- Puedes pedirme scripts adicionales para predicción, comparación de modelos, visualización o ajuste de hiperparámetros.
-- Si necesitas modificar el flujo, solo dime qué necesitas y se adapta el código.
+- **No pierdes nada importante:**  
+  El script, los modelos y resultados quedan guardados en el repo.  
+  Si necesitas retomar el proyecto o pedir scripts nuevos, solo copia este contexto y tus dudas en Copilot Chat.
+- **Siempre ejecuta desde el repo:**  
+  Así tienes todo respaldado y es fácil continuar/automatizar.
 
 ---
 
-**Ante cualquier corte, vuelve a este README y sigue desde aquí.**
+## ¿Quieres agregar nuevas señales (por ejemplo, ETFs como variables externas)?
+
+- Solo pídelo aquí y se adaptará el pipeline para combinar varios archivos y mejorar los modelos.
+
+---
+
+**¡Listo para usar! Si tienes nuevas ideas o quieres optimizar, sólo escribe aquí.**
